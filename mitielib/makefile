@@ -33,7 +33,7 @@ SRC += ../dlib/dlib/threads/thread_pool_extension.cpp
 SRC += ../dlib/dlib/misc_api/misc_api_kernel_1.cpp
 SRC += ../dlib/dlib/misc_api/misc_api_kernel_2.cpp
 
-CFLAGS +=  -fpic  -Wall -W  -O3 -lwinmm  -Iinclude -I../dlib 
+CFLAGS +=  -fpic  -Wall -W  -O3  -Iinclude -I../dlib 
 LDFLAGS = -shared
 CC = g++
 
@@ -58,11 +58,11 @@ libmitie.a: libmitie.so
 
 .cpp.o: $<
 	@echo Compiling $<
-	@$(CC) -c $(CFLAGS) $< -o $@
+	@$(CC) -c $(CFLAGS) $< -o $@ -lwinmm
 
 .c.o: $<
 	@echo Compiling $<
-	@gcc -c $(CFLAGS) $< -o $@
+	@gcc -c $(CFLAGS) $< -o $@ -lwinmm
 
 install: all 
 	@echo copying libmitie.so and libmitie.a to $(INSTALL_PREFIX)/lib
