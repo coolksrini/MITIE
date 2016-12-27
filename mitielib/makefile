@@ -49,7 +49,7 @@ all: libmitie.so libmitie.a
 
 libmitie.so: $(OBJ) 
 	@echo Linking $@
-	@$(CC) -shared $(OBJ) $(BLAS) -o $@
+	@$(CC) -shared $(OBJ) $(BLAS) -o $@ -lwinmm
 
 libmitie.a: libmitie.so
 	@echo Making $@
@@ -58,11 +58,11 @@ libmitie.a: libmitie.so
 
 .cpp.o: $<
 	@echo Compiling $<
-	@$(CC) -c $(CFLAGS) $< -o $@ -lwinmm
+	@$(CC) -c $(CFLAGS) $< -o $@ 
 
 .c.o: $<
 	@echo Compiling $<
-	@gcc -c $(CFLAGS) $< -o $@ -lwinmm
+	@gcc -c $(CFLAGS) $< -o $@ 
 
 install: all 
 	@echo copying libmitie.so and libmitie.a to $(INSTALL_PREFIX)/lib
