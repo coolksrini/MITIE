@@ -33,7 +33,7 @@ SRC += ../dlib/dlib/threads/thread_pool_extension.cpp
 SRC += ../dlib/dlib/misc_api/misc_api_kernel_1.cpp
 SRC += ../dlib/dlib/misc_api/misc_api_kernel_2.cpp
 
-CFLAGS +=  -fpic  -Wall -W  -O3   -Iinclude -I../dlib 
+CFLAGS +=  -fpic  -Wall -W  -O3 -lwinmm  -Iinclude -I../dlib 
 LDFLAGS = -shared
 CC = g++
 
